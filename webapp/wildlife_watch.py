@@ -138,6 +138,7 @@ def clicks(n_clicks, park, value):
     df_park_info = df_park_info_master[(df_park_info_master['park'] == str(park)) & (df_park_info_master['month'] == int(value))]
     animal_text = str(df_park_info.iloc[0]['animals'])
     animal_listitems = [html.P(x) for x in animal_text.split('<br>')]
+    animal_listitems += [html.P('Hover mouse over map markers for animals to expect on each trail.')]
     return [html.P("Animals to expect in {}:".format(str(datetime.date(2000, int(value), 1).strftime('%B')))),
             html.Div(animal_listitems)]  # (park, value)
 
